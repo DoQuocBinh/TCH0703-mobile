@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS and Regular espression</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		//when all resources are ready in client
+		$(document).ready(function() {
+			//register event button click
+			$("#checkbtn").click(function(event) {
+				//declare a pattern to check email
+				var patt = new RegExp("^.+[@].+((.com)|(.net))$");
+				//user input from textbox email
+				var userInput = $("#email").val();
+				//check user input against email pattern
+				if (patt.test(userInput)) {
+					//alert("correct email format");
+					$("#email").css('border', 'green solid 1px');
+					$("#errorEmail").text('');
+
+				}else{
+					//alert("Incorrect email format");
+					$("#email").css('border', 'red solid 1px');
+					$("#errorEmail").text('Invalid email!');
+				}
+				var age = $("#age").val();
+				if (age <20) {
+					$("#age").css('border', 'red solid 1px');
+					
+				}else{
+					$("#age").css('border', 'green solid 1px');
+				}
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<section id="page" data-role="page">
+			<header data-role="header">
+				<h1>Check regular expression by Javascript</h1>
+			</header><!-- /header -->
+			<article role="main" class="ui-content">
+				<div data-role="fieldcontain">
+					<label for="textBox">Enter an Email</label>
+					<input class="validLabel2" type="text" id="email" />
+					<span id="errorEmail" style="color: red"></span>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Age(> 20)</label>
+					<input type="text"  id="age"  />
+				</div>
+				<a href="#" class="ui-btn" id="checkbtn">Check email!</a>
+			</article><!-- /content -->
+			<footer data-role="footer">
+				<h1>Footer</h1>
+			</footer><!-- /footer -->
+	</section><!-- /page -->	
+</body>
+</html>

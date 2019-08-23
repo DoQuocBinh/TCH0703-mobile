@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<section id="page" data-role="page">
+		<header data-role="header">
+			<h1>Validation</h1>
+		</header><!-- /header -->
+		<article role="main" class="ui-content">
+			<form>
+				<div data-role="fieldcontain">
+					<label for="textBox">Begin with ABC</label>
+					<input type="text" pattern="^ABC" Title="Begin with ABC" name="textBox" id="textBox" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">End with ABC</label>
+					<input type="text" pattern="\w+ABC$" Title="End with ABC" name="textBox"  value="" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox"> >5 characters</label>
+					<input type="text" name="textBox" minlength="5" title="Min 5 characters" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">5 digits</label>
+					<input type="text" pattern="^\d{5}$" title="5 digits" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">6- 8 characters</label>
+					<input type="text" pattern="^\w{6,8}$" title="6 to 8 charachacters" value="" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">ddd-dddd</label>
+					<input type="text" pattern="^\d{3}-\d{4}$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First 3 characters must be in K Z or P</label>
+					<input type="text" pattern="^[KZP]{3}"  />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First character must from A-H, Second must from 5-9</label>
+					<input type="text" pattern="^[A-Ha-h][5-9]$"  />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Optional A-H at the begining</label>
+					<input type="text"  pattern="^[A-H]?.{0,}" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">must be end with .com</label>
+					<input type="text" pattern="^.{0,}(.com)$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">must be end with .com or .net</label>
+					<input type="text" pattern="^.*((.com)|(.net))$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Email</label>
+					<input type="text" pattern="^.+[@].+((.com)|(.net))$" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First character not A, B or C</label>
+					<input type="text" pattern="^[^ABC]+" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">First character not A, B, C nor digit</label>
+					<input type="text" pattern="^[^ABC^0-9]+"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="textBox">Enter 2 words</label>
+					<input type="text" pattern="^[a-zA-Z]+\s[a-zA-Z]+" />
+				</div>
+				<input type="submit" value="Check">	
+			</form>
+		</article><!-- /content -->
+		<footer data-role="footer">
+			<h1>Footer</h1>
+		</footer><!-- /footer -->
+	</section><!-- /page -->
+</body>
+</html>
