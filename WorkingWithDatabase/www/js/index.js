@@ -33,12 +33,17 @@ function viewData(){
        var len = results.rows.length, i; 
 
        msg = "<p>Found rows: " + len + "</p>"; 
-       document.querySelector('#status').innerHTML +=  msg; 
+       msg += '<table width="500px" data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke">';
+       msg += '<thead> <tr><th>Id</th><th>Log</th></tr></thead><tbody>';
+       
 
-       for (i = 0; i < len; i++) { 
-          msg = "<p><b>" + results.rows.item(i).log + "</b></p>"; 
-          document.querySelector('#status').innerHTML +=  msg; 
+      for (i = 0; i < len; i++) { 
+          msg += "<tr><td>" +results.rows.item(i).id + "</td><td>" + results.rows.item(i).log + "</td></tr>"; 
+          //document.querySelector('#status').innerHTML +=  msg; 
       } 
+      msg += "</tbody></table>";
+     
+      document.querySelector('#status').innerHTML =  msg; 
   }, null);
 }); 
 }
