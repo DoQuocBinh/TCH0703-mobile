@@ -1,11 +1,24 @@
+$(document).ready(function() {
+  $("#searchBox").keyup(function(event) {
+    var nameSearch = $("#searchBox").val();
+    var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+      tx.executeSql('SELECT * FROM product where name like ?'
+        , ['%' + nameSearch +'%'], function (tx, results) {
+         loadDataToTable(results);
+       });
+    });
+  });
+});
+
 function loadDataToTable(results){
   var len = results.rows.length, i;
     var table = document.getElementById("mytable");
 
     $(function()
     {
-    $('table tr').not(':nth-child(1)').remove()
-  });
+      $('#mytable tr').not(':nth-child(1)').remove()
+    });
 
     for (i = 0; i < len; i++) {
     //insert new row at the bottom
@@ -24,14 +37,4 @@ db.transaction(function (tx) {
   	tx.executeSql('SELECT * FROM product', [], function (tx, results) {
 	 loadDataToTable(results);
 });
-});
-
-$("#btnSearch").click(function(event) {
-	var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
-	db.transaction(function (tx) {
-  	tx.executeSql('SELECT * FROM product where name like ?'
-  		, ['%' + $("#name").val() +'%'], function (tx, results) {
-	 loadDataToTable(results);
-});
-  	});
 });
