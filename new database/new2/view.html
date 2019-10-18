@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>View All</title>
+	<title>View products</title>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -10,18 +10,15 @@
 <body>
 	<section id="page" data-role="page">
 		<header data-role="header">
-			<h1>View all</h1>
+			<h1>View Product</h1>
 		</header><!-- /header -->
 		<article role="main" class="ui-content">
-			<div data-role="fieldcontain">
-				<label for="textBox">Search By Name</label>
-				<input type="text" name="textBox" id="name" value="" />
-			</div>
-			<a href="#" data-ajax="false" class="ui-btn" id="btnSearch">Search</a>
-			<table data-role="table"  class="ui-responsive table-stroke" id="mytable">
+				<label for="searchBox">Product Name</label>
+				<input type="search" id="searchBox" value="" />
+			<table data-role="table"  class="ui-responsive  table-stroke" id="mytable">
 				<thead>
-       				<tr>
-						<th>Id</th>
+					<tr>
+						<th>ID</th>
 						<th>Name</th>
 						<th>Price</th>
 					</tr>
@@ -31,11 +28,10 @@
 				</tbody>
 			</table>
 		</article><!-- /content -->
-		<a href="CreateDatabase.html" data-ajax="false" class="ui-btn">Go to create</a>
 		<footer data-role="footer">
 			<h1>Footer</h1>
 		</footer><!-- /footer -->
 	</section><!-- /page -->
-	<script type="text/javascript" src="loadData.js"></script>
+	<script src="view.js"></script>
 </body>
 </html>

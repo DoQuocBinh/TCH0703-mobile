@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create product</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+	̦<section id="page" data-role="page">
+		<header data-role="header">
+			<h1>Create a new Product</h1>
+		</header><!-- /header -->
+		<article role="main" class="ui-content">
+			<div data-role="fieldcontain">
+				<label for="textBox">Name</label>
+				<input type="text"  id="name" value="" />
+			</div>
+			<div data-role="fieldcontain">
+				<label for="textBox">Price</label>
+				<input type="text"  id="price" value="" />
+			</div>
+			<a href="#" class="ui-btn" id="create" data-ajax="false">Create</a>
+			<a href="view.html" class="ui-btn" id="view" data-ajax="false">View</a>
+		</article><!-- /content -->
+		<footer data-role="footer">
+			<h1>Footer</h1>
+		</footer><!-- /footer -->
+	</section><!-- /page -->
+	<script type="text/javascript" src="create.js"></script>
+</body>
+</html>
