@@ -1,5 +1,6 @@
 $(document).ready(function() {
   loadAll();
+
   //register the event search
   $("#searchBox").keyup(function(event) {
       performSearch(); //call the search function
@@ -34,18 +35,23 @@ function loadDataToTable(results){
     var priceCell = row.insertCell(2);
     var removeCell = row.insertCell(3);
       
-      idCell.innerHTML = results.rows.item(i).id;
-      nameCell.innerHTML =results.rows.item(i).name;
-      priceCell.innerHTML = results.rows.item(i).price
-      removeCell.innerHTML = "<button onclick='removeRow(this)' productId='" +  
-                            results.rows.item(i).id + "'>Delete</button>";
-    }
+    idCell.innerHTML = results.rows.item(i).id;
+    nameCell.innerHTML =results.rows.item(i).name;
+    priceCell.innerHTML = results.rows.item(i).price
+    removeCell.innerHTML = "<button onclick='removeRow(this)' productId='" +  
+                          results.rows.item(i).id + "'>Delete</button>";
+  }
 }
 function removeRow(butt){
   var id = butt.getAttribute("productId");
-  alert("Going to remove: " + id);
-  deleteFromDB(id);
-  loadAll();
+  var action = confirm("Are you sure to delete?");
+  if (action) {
+    deleteFromDB(id);
+    loadAll();
+  }else {
+    alert("Deletion aborted!");
+  }
+ 
 
 }
 function deleteFromDB(id){
